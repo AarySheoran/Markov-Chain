@@ -1,2 +1,11 @@
 # Markov-Chain
 Using Markov Chain modeling and scraped data to understand the expected net worth of a startup founder who went to Stanford's Graduate School of Business
+
+
+The Markov Chain model looks to assign an NPV to any founder who went to Stanford’s GSB. The model breaks down the valuation of a founder into salary a founder earns every year the startup is active and the windfall if a startup is acquired. The model uses base data scraped from LinkedIn for the Stanford Classes of 2004 and 2005. From about 76% of the scraped class, we observed that 125 graduates had founded their own startups. Out of these, ~10% were acquired and ~46% had failed (as far as LinkedIn and Crunchbase data indicated). Slightly more than 25% of founders had gone and founded a second or third startup. From the data, it was clear that acquisitions were rare events that could happen at any point in a startup’s life but failure was more common in specific years (years after major funding rounds were common points of failure). This enables us to measure the probability of a startup making it to the next year. This data is available in “GSB Class of 2004_5 Scraped.xlsx” in this GitHub repo.
+
+In any given year, the founders’ startup can either continue to grow, fold, or be acquired. If the startup folds or is acquired, the founder can either leave the startup space or go and re-found another startup. There simply was not enough data available to make generalizations on changes to the probability of re-founding following folding or acquisition, so both are treated equally. If a startup grows, the founder earns a reward as a salary and if the startup is acquired, the founder earns a reward of the total sale amount tempered by their expected ownership in the firm. This is more clearly explained here: https://docs.google.com/spreadsheets/d/1ikwLB-nFyGQSHjmcOnRyxr-vdu933h6bFaTlq89LicA/edit?usp=sharing. 
+
+The model has a 7x revenue to valuation metric attached and on average expects founders to dilute equity by 20% every two years until year 8. The model assumes that a founders’ discount rate is 10% per year, given the higher risk associated with being in the startup sapce. Finally, the expected net worth of an average founder is ~$5,400,000. 
+
+This is the plot of the Markov Chain: https://ibb.co/T0wfQkZ
